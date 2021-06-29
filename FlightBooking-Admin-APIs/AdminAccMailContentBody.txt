@@ -1,0 +1,17 @@
+Hi ${FNAME}  ${LNAME} ,<br/>
+<br/>
+welcome to Flight Booking Application , your account is created by our admin<br/>
+<br/>
+please check below details to access the Flight Booking application,<br/>
+<br/>
+Application URL: ${URL}<br/>
+Email : ${EMAIL}<br/>
+Password : ${PWD}<br/>
+Your Role : ${ROLE}<br/>
+<br/>
+if you have any concern / issues then please contact with our  Flight Booking admin people <br/>
+contact No: ${}<br/>
+<br/>
+Thanks & regards <br/>
+CTS Admin team.
+

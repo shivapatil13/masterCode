@@ -2,12 +2,7 @@ package com.flightapp.fb.controller;
 
 import java.util.List;
 
-import javax.persistence.Cacheable;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.data.repository.query.QueryLookupStrategy.Key;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.flightapp.exception.FlightBookingException;
 import com.flightapp.fb.entities.FlightBook;
-import com.flightapp.fb.entities.FlightScheduled;
 import com.flightapp.fb.entities.Flights;
 import com.flightapp.fb.service.FlightBookingService;
 
@@ -77,12 +71,6 @@ public class FlightBookingController {
 		return searchFlightResponse;
 	}
 
-	@PostMapping(value = "/flightSchedule")
-	public FlightScheduled scheduleFlight(@RequestBody FlightScheduled schedule) throws FlightBookingException {
-		FlightScheduled scheduleResponse;
-		scheduleResponse = flightBookingService.scheduleFlightByAdmin(schedule);
-		return scheduleResponse;
-	}
 
 	@PostMapping(value = "/flightBooking")
 	public FlightBook flightBooking(@RequestBody FlightBook bookFlight) throws FlightBookingException {

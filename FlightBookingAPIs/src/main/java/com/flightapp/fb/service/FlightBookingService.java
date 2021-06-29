@@ -11,18 +11,15 @@ import org.springframework.stereotype.Service;
 import com.flightapp.constant.FlightBookingConstant;
 import com.flightapp.exception.FlightBookingException;
 import com.flightapp.fb.entities.FlightBook;
-import com.flightapp.fb.entities.FlightScheduled;
 import com.flightapp.fb.entities.Flights;
 import com.flightapp.fb.repository.FlightBookRepo;
 import com.flightapp.fb.repository.FlightRepo;
-import com.flightapp.fb.repository.FlightScheduleRepo;
 
 @Service
 public class FlightBookingService {
 	@Autowired
 	private FlightRepo flightRepo;
-	@Autowired
-	private FlightScheduleRepo flightScheduleRepo;
+
 	@Autowired
 	private FlightBookRepo flightBookRepo;
 	Logger log = LoggerFactory.getLogger(FlightBookingService.class);
@@ -98,19 +95,6 @@ public class FlightBookingService {
 			throw new FlightBookingException();
 		}
 		return searchFlight;
-	}
-
-	public FlightScheduled scheduleFlightByAdmin(FlightScheduled scheduleFlight) throws FlightBookingException {
-		log.info(FlightBookingConstant.LOG_FLIGHT_BOOKING_18);
-		FlightScheduled flightSchedule = null;
-		try {
-			flightSchedule = flightScheduleRepo.save(scheduleFlight);
-			log.info(FlightBookingConstant.LOG_FLIGHT_BOOKING_19);
-		} catch (Exception e) {
-			log.error(FlightBookingConstant.LOG_FLIGHT_BOOKING_20);
-			throw new FlightBookingException();
-		}
-		return flightSchedule;
 	}
 
 	public FlightBook bookFlight(FlightBook bookFlight) throws FlightBookingException {
